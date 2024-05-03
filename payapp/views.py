@@ -44,7 +44,7 @@ def transfer_money_view(request):
                     url = request.build_absolute_uri(reverse('conversion', kwargs={'currency1': sender_account.currency,
                                                                                    'currency2': receiver_account.currency,
                                                                                    'amount': amount}))
-                    response = requests.get(url)
+                    response = requests.get(url, verify=False)
                     if response.status_code == 200:
                         data = json.loads(response.text)
                         converted_amount = decimal.Decimal(data['converted_amount'])
@@ -174,7 +174,7 @@ def payment_requests_view(request):
                     url = request.build_absolute_uri(reverse('conversion', kwargs={'currency1': sender_account.currency,
                                                                                    'currency2': receiver_account.currency,
                                                                                    'amount': t.amount}))
-                    response = requests.get(url)
+                    response = requests.get(url, verify=False)
                     print(f"this is a response",response)
                     if response.status_code == 200:
                         data = json.loads(response.text)
