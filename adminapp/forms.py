@@ -32,5 +32,5 @@ class AdminRegisterForm(UserCreationForm):
         currency1 = 'GBP'
         currency2 = self.cleaned_data['currency']
         convert_to_currency = conversion.convert_currency.convert_currency(currency1, currency2, baseline)
-        UserAccounts.objects.create(username=instance, amount=convert_to_currency, currency=self.cleaned_data['currency'])
+        UserAccounts.objects.create(username=instance, balance=convert_to_currency, currency=self.cleaned_data['currency'])
         return instance

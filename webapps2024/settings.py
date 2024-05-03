@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+X_FRAME_OPTIONS = 'DENY'
+
 ROOT_URLCONF = 'webapps2024.urls'
 
 TEMPLATES = [
@@ -83,7 +85,7 @@ WSGI_APPLICATION = 'webapps2024.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'webapps.sqlite3',
+        'NAME': BASE_DIR / 'webapps.db',
     }
 }
 

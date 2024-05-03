@@ -11,6 +11,6 @@ def create_admin_user(sender, **kwargs):
     if sender.name == 'payapp':
         if not User.objects.filter(username='admin1').exists():
             user = User.objects.create_superuser('admin1', 'admin1@example.com', 'admin1')
-            UserAccounts.objects.create(username=user, balance=decimal.Decimal('1000.00'), currency='gbp')
+            UserAccounts.objects.create(username=user, balance=decimal.Decimal('1000.00'), currency='GBP')
         else:
             logger.info("Oops, the user with admin1 username is already exist.")
