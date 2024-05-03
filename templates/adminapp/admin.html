@@ -29,11 +29,11 @@
                         {% for cmnt in transaction_list %}
                             <tr>
                                 <td>{{ cmnt.id }}</td>
-                                <td>{{ cmnt.transaction_date }}</td>
-                                <td>{{ cmnt.user_sending.username }}</td>
-                                <td>{{ cmnt.user_receiving.username }}</td>
+                                <td>{{ cmnt.transaction_date_time }}</td>
+                                <td>{{ cmnt.transfering_money_to_user.username }}</td>
+                                <td>{{ cmnt.receiving_money_from_user.username }}</td>
                                 <td>{{ cmnt.amount }}</td>
-                                <td>{{ cmnt.state }}</td>
+                                <td>{{ cmnt.state_of_transaction }}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

@@ -32,7 +32,7 @@ def admin_view(request):
         messages.error(request, "Unauthorized access.")
         return redirect('home')  # Redirect to a safe home page URL
 
-    transaction_list = Transactions.objects.all().order_by('-transaction_date')[:10]  # Adjust as necessary
+    transaction_list = Transactions.objects.all().order_by('-transaction_date_time')[:10]  # Adjust as necessary
     user_list = UserAccounts.objects.all()  # You may want to filter or paginate this
 
     context = {'transaction_list': transaction_list, 'user_list': user_list, }
