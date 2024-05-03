@@ -1,0 +1,58 @@
+@import url(http://weloveiconfonts.com/api/?family=brandico);
+@import url(https://fonts.googleapis.com/css?family=Junge);
+*{
+    margin:0;
+    padding:0;
+
+
+}
+
+body{
+    background-size:cover;
+    font-family:junge,georgia;
+    text-align:center;
+}
+
+
+/* brandico */
+[class*="brandico-"]:before {
+    font-family: 'brandico', sans-serif;
+}
+
+.greet {
+    font-size: 50px;
+    line-height: 100px;
+}
+.subText p {
+    font-size: 30px;
+    line-height: 100px;
+}
+.email {
+    font-size: 20px;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; /* This ensures that the flex container takes at least the full height of the viewport */
+}
+.form-group {
+    width: 100%; /* Adjust width as necessary, or keep it auto */
+    max-width: 400px; /* Provides a maximum width for the form */
+}
+.button-center {
+    display: block;
+    margin: 0 auto; /* Centers the button horizontally */
+    padding: 10px 20px;
+    color: blue; /* Set text color to blue */
+    border: 2px solid blue; /* Blue border */
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.button-center:hover {
+    background-color: blue; /* Change background to blue on hover */
+    color: white; /* Change text color to white on hover */
+}

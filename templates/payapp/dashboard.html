@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Fastly App Home
+{% endblock %}
+
+
+{% block content %}
+    <link href="{% static 'webapps2024/css/dashboard.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/profilecard.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/login.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/main.css' %}" rel="stylesheet"/>
+
+    {% if user.is_authenticated %}
+    <div class="centered-container">
+        <div class="content">
+            <div class="card">
+                <div class="firstinfo">
+                    <img src="https://imgchest.com/p/lqye8q2qydn#gallery-1" alt="Profile Image">
+                    <div class="profileinfo">
+                        <h2 class="justify-content-center">Username - {{user.username}} </h2>
+                        <h3>Balance: {{account.balance}} {{account.currency|upper}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         {% if transaction_list|length > 0 %}
+                <br>
+                <table id="dashboard">
+                    <caption></caption>
+                    <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Sent From</th>
+                        <th>Sent To</th>
+                        <th>Amount Sent</th>
+                        <th>Amount Received</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for transaction in transaction_list %}
+                        <tr>
+                            <td>{{ transaction.id }}</td>
+                            <td>{{ transaction.transaction_date_time }}</td>
+                            <td>{{ transaction.transfering_money_to_user.username }}</td>
+                            <td>{{ transaction.receiving_money_from_user.username }}</td>
+                            <td>{{ transaction.amount }} {{ transaction.sender_currency }}</td>
+                            <td>{{ transaction.converted_amount }} {{ transaction.receiver_currency }}</td>
+                            <td>{{ transaction.state_of_transaction }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <h5>There are no transactions for user: <em>{{user.username}}</em>.</h5>
+            {% endif %}
+        {% else %}
+            <h5>Fatsly Home</h5>
+        {% endif %}
+    </div>
+
+{% endblock %}

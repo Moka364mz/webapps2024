@@ -1,0 +1,45 @@
+{% extends 'register/../base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Request Money
+{% endblock %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <link href="{% static 'webapps2024/css/login.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/main.css' %}" rel="stylesheet"/>
+
+    {% if pending_transactions %}
+        <h1>Pending Transactions</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Send To</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for transaction in pending_transactions %}
+                <tr>
+                    <td>{{ transaction.pk }}</td>
+                    <td>{{ transaction.receiving_money_from_user }}</td>
+                    <td>{{ transaction.amount }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Process Transaction</h2>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            {{ process_pending|crispy }}
+            <button type="submit" class="btn btn-success">Process</button>
+        </form>
+    {% else %}
+        <p>You have no pending transactions to process.</p>
+    {% endif %}
+{% endblock %}

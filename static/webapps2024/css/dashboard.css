@@ -1,0 +1,45 @@
+table#dashboard {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: Agenda-Light, sans-serif;
+    font-weight: 100;
+    background: #333; color: #fff;
+    text-rendering: optimizeLegibility;
+    border-radius: 5px;
+}
+table#dashboard caption {
+    font-size: 2rem; color: #444;
+    margin: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center left, center right;
+}
+table#dashboard thead th { font-weight: 600; }
+table#dashboard thead th, table#dashboard tbody td {
+    padding: .8rem; font-size: 1.4rem;
+}
+table#dashboard tbody td {
+    padding: .8rem; font-size: 1.4rem;
+    color: #444; background: #eee;
+}
+table#dashboard tbody tr:not(:last-child) {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px) {
+    table#dashboard caption { background-image: none; }
+    table#dashboard thead { display: none; }
+    table#dashboard tbody td {
+        display: block; padding: .6rem;
+    }
+    table#dashboard tbody tr td:first-child {
+        background: #666; color: #fff;
+    }
+    table#dashboard tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 6rem;
+    }
+}

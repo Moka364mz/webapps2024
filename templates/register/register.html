@@ -1,0 +1,25 @@
+{% extends 'register/../base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Create an Account
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <link href="{% static 'webapps2024/css/login.css' %}" rel="stylesheet"/>
+{#    <link href="{% static 'webapps2024/css/main.css' %}" rel="stylesheet"/>#}
+
+    <div class="centered-container">
+        <h1>Register</h1>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            {{ user_register|crispy }}
+            <button type="submit" class="button-center">Register</button>
+        </form>
+
+        <a href="{% url 'register:login' %}">I want to login</a>
+    </div>
+{% endblock %}

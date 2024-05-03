@@ -1,0 +1,15 @@
+{% extends 'register/../base.html' %}
+
+{% block title %}
+    You have been logged out
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="border-top pt-3"  style="min-height:65vh;">
+        <small class="text-muted">
+            <a href="{% url 'home' %}">Homepage</a>
+        </small>
+    </div>
+{% endblock content %}

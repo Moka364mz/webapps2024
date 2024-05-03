@@ -1,0 +1,23 @@
+{% extends 'register/../base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Request Money
+{% endblock %}
+
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <link href="{% static 'webapps2024/css/login.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/main.css' %}" rel="stylesheet"/>
+
+    <div class="centered-container">
+        <h1>Request Money</h1>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            {{ request_money|crispy }}
+            <button type="submit" class="button-center">Send</button>
+        </form>
+    </div>
+{% endblock %}

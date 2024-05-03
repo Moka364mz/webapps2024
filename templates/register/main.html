@@ -1,0 +1,37 @@
+{#{% extends 'base.html' %}#}
+{% load static %}
+
+{#{% block title %}#}
+{#    Fastly App Main#}
+{#{% endblock %}#}
+
+
+{% block content %}
+
+    <link href="{% static 'webapps2024/css/main.css' %}" rel="stylesheet"/>
+    <link href="{% static 'webapps2024/css/login.css' %}" rel="stylesheet"/>
+    {#    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>#}
+
+    <div class="content">
+        <div class="welcomeText">
+            <div class="welcome">
+                <h1 class="greet">WELCOME</h1>
+            </div>
+            <div class="subText">
+                <div class="subTexts">
+                    <p class="subscribe">to Fastly pay</p>
+                    <p class="soon">It's not a real payment service</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form">
+            <a class="button" href="{% url 'register:register' %}">Register</a>
+            <a class="button" href="{% url 'register:login' %}">Login </a>
+        </div>
+
+    </div>
+
+    <script src="{% static 'webapps2024/js/main.js' %}"></script>
+
+{% endblock %}
